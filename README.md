@@ -3,6 +3,8 @@
 Das Benutzerhandbuch der Android-App [KMySync](https://github.com/PerFermat/KMySync) als statische
 Webseite, auf Deutsch (`index.html`) und Englisch (`en/index.html`).
 
+**Online lesen: https://kmysync.michaelspahr.de** (English: https://kmysync.michaelspahr.de/en/)
+
 **Alles hier ist generiert, bitte nichts von Hand ändern.** Quelle sind die Handbuch-JSON-Dateien im
 KMySync-Repo (dieselben wie für das PDF):
 
