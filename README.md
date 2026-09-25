@@ -20,6 +20,18 @@ Das Skript schreibt die Seiten nach `~/git/kmysync-handbuch`. Ein anderes Ziel g
 `--ziel` an. Screenshots werden als WebP abgelegt (540 px für die Seite, 1080 px für die Lightbox);
 unveränderte Bilder überspringt es.
 
+## Hochladen nach kmysync.michaelspahr.de
+
+```bash
+bash deploy-server.sh          # hochladen, was gerade im Repo liegt
+bash deploy-server.sh --neu    # vorher aus den JSONs neu erzeugen
+```
+
+Zugangsdaten stehen in `deploy.env` (nicht eingecheckt, Vorlage: `deploy.env.example`).
+Das Skript packt die Seite, überträgt sie per scp und tauscht auf dem Server den Inhalt von
+`/var/www/kmysync` aus. Vorher legt es dort eine Sicherung `/var/www/kmysync.bak-<Zeitstempel>` an
+(die zwei neuesten bleiben). Den passenden nginx-Block findest du in `nginx/kmysync.michaelspahr.de.conf`.
+
 ## Ansehen
 
 Die Seite läuft ohne Build-Schritt, lokal zum Beispiel mit
