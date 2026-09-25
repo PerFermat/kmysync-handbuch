@@ -8,7 +8,7 @@
 #    Vorher neu erzeugen:     bash deploy-server.sh --neu
 #
 # Alle Werte lassen sich auch als Environment-Variablen uebergeben, z. B.:
-#   DEPLOY_HOST=87.106.133.140 DEPLOY_USER=root DEPLOY_PATH=/var/www/kmysync bash deploy-server.sh
+#   DEPLOY_HOST=example.com DEPLOY_USER=user DEPLOY_PATH=/var/www/kmysync bash deploy-server.sh
 #
 set -euo pipefail
 
