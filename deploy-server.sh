@@ -73,8 +73,10 @@ case "$DEST" in /var/www/?*) ;; *) echo "Unerwarteter Zielpfad: $DEST" >&2; exit
 if [ -d "$DEST" ] && [ -n "$(ls -A "$DEST" 2>/dev/null)" ]; then
   echo "    Backup -> ${DEST}.bak-${STAMP}"
   $SUDO cp -a "$DEST" "${DEST}.bak-${STAMP}"
-  # Nur die 2 neuesten Backups behalten, aeltere loeschen (Speicher sparen)
-  ls -dt "${DEST}".bak-* 2>/dev/null | tail -n +3 | while IFS= read -r old; do
+  # Nur die 2 neuesten Backups behalten, aeltere loeschen (Speicher sparen). Sortiert wird nach dem
+  # Zeitstempel im Namen, nicht nach mtime: cp -a uebernimmt das alte Datum des Web-Roots, sonst
+  # gaelte das gerade angelegte Backup als das aelteste und wuerde sofort wieder geloescht.
+  ls -d "${DEST}".bak-* 2>/dev/null | sort -r | tail -n +3 | while IFS= read -r old; do
     $SUDO rm -rf "$old" && echo "    altes Backup entfernt: $old"
   done
 fi
